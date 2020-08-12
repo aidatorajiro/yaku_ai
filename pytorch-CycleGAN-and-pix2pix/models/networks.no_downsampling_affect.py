@@ -145,7 +145,7 @@ class ReLU(Module):
         self.inplace = inplace
 
     def forward(self, input):
-        return F.threshold(input + torch.sin(input * k)*1.6, 0, 0, self.inplace)
+        return F.threshold(input + torch.sin(input * k)*2.6, 0, 0, self.inplace)
 
     def extra_repr(self):
         inplace_str = 'inplace' if self.inplace else ''
@@ -171,7 +171,7 @@ class ResnetGenerator(nn.Module):
                  nn.Conv2d(input_nc, ngf, kernel_size=7, padding=0,
                            bias=use_bias),
                  norm_layer(ngf),
-                 ReLU(True)]
+                 nn.ReLU(True)]
 
         n_downsampling = 2
         for i in range(n_downsampling):
@@ -179,7 +179,7 @@ class ResnetGenerator(nn.Module):
             model += [nn.Conv2d(ngf * mult, ngf * mult * 2, kernel_size=3,
                                 stride=2, padding=1, bias=use_bias),
                       norm_layer(ngf * mult * 2),
-                      ReLU(True)]
+                      nn.ReLU(True)]
 
         mult = 2**n_downsampling
         for i in range(n_blocks):

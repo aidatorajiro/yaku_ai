@@ -25,4 +25,4 @@ if __name__ == '__main__':
         model.set_input(data)
         model.test()
         visuals = model.get_current_visuals()
-        utils.save_image(torch.cat(list(visuals.values())), os.path.join(out_dir, str(i) + '.png'))
+        utils.save_image(torch.cat(list(visuals.values())), os.path.join(out_dir, str(i) + '.png'), normalize=True)

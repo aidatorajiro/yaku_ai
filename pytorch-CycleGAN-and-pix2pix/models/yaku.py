@@ -62,3 +62,68 @@ class ReLU(Module):
     def extra_repr(self):
         inplace_str = 'inplace' if self.inplace else ''
         return inplace_str
+
+# meta 3
+class ReLU(Module):
+    def __init__(self, inplace=False):
+        super(ReLU, self).__init__()
+        self.inplace = inplace
+
+    def forward(self, input):
+        return F.threshold(input + torch.sin(input * 125)*0.1, 0, 0, self.inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
+
+# meta 4
+class ReLU(Module):
+    def __init__(self, inplace=False):
+        super(ReLU, self).__init__()
+        self.inplace = inplace
+
+    def forward(self, input):
+        return F.threshold(input + torch.sin(input * 125)*0.2 - 0.2, 0, 0, self.inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
+
+# tokuchou
+class ReLU(Module):
+    def __init__(self, inplace=False):
+        super(ReLU, self).__init__()
+        self.inplace = inplace
+
+    def forward(self, input):
+        return F.threshold(input + torch.sin(input * 10)*0.5 - 0.5, 0, 0, self.inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
+
+# D1
+class ReLU(Module):
+    def __init__(self, inplace=False):
+        super(ReLU, self).__init__()
+        self.inplace = inplace
+
+    def forward(self, input):
+        return F.threshold(input + torch.sin(input * 2)*0.5 - 0.5, 0, 0, self.inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
+
+# metaEX
+class ReLU(Module):
+    def __init__(self, inplace=False):
+        super(ReLU, self).__init__()
+        self.inplace = inplace
+
+    def forward(self, input):
+        return F.threshold(input + torch.sin(input * 10000)*0.3 - 0.19, 0, 0, self.inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
